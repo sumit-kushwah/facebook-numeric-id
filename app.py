@@ -22,9 +22,20 @@ def userId(f_username):
     
     return "ERROR: id not found"
 
+
+@app.route('/')
+def index():
+    return "<h1>Welcome to our server !!</h1>"
+
 @app.route('/fid', methods=['GET'])
-def home():
+def getFacebookID():
     if 'username' in request.args:
         return jsonify(userId(request.args['username']))
     else:
         return jsonify("Error: No username field provided. Please specify an username.")
+
+
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
+
