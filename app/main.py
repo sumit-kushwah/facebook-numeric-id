@@ -1,10 +1,10 @@
 import flask
+import requests, re, ast
 from flask import request, jsonify
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-import requests, re, ast
 
 def userId(f_username):
 
