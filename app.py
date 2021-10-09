@@ -34,6 +34,12 @@ def getFacebookID():
     else:
         return jsonify("Error: No username field provided. Please specify an username.")
 
+@app.route('/ig', methods=['GET'])
+def getCode():
+    if 'code' in request.args:
+        return jsonify(request.args['code'])
+    else:
+        return jsonify("Error: No code field provided.")
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
